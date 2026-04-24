@@ -1,0 +1,722 @@
+{
+  "name": "Classic Monopoly",
+  "squares": [
+    {
+      "name": "GO",
+      "pricetext": "COLLECT $200 SALARY AS YOU PASS.",
+      "color": "#FFFFFF",
+      "price": 0,
+      "groupNumber": 0,
+      "baserent": 0,
+      "rent1": 0,
+      "rent2": 0,
+      "rent3": 0,
+      "rent4": 0,
+      "rent5": 0
+    },
+    {
+      "name": "Mediterranean Avenue",
+      "pricetext": "$60",
+      "color": "#8B4513",
+      "price": 60,
+      "groupNumber": 3,
+      "baserent": 2,
+      "rent1": 10,
+      "rent2": 30,
+      "rent3": 90,
+      "rent4": 160,
+      "rent5": 250
+    },
+    {
+      "name": "Community Chest",
+      "pricetext": "FOLLOW INSTRUCTIONS ON TOP CARD",
+      "color": "#FFFFFF",
+      "price": 0,
+      "groupNumber": 0,
+      "baserent": 0,
+      "rent1": 0,
+      "rent2": 0,
+      "rent3": 0,
+      "rent4": 0,
+      "rent5": 0
+    },
+    {
+      "name": "Baltic Avenue",
+      "pricetext": "$60",
+      "color": "#8B4513",
+      "price": 60,
+      "groupNumber": 3,
+      "baserent": 4,
+      "rent1": 20,
+      "rent2": 60,
+      "rent3": 180,
+      "rent4": 320,
+      "rent5": 450
+    },
+    {
+      "name": "City Tax",
+      "pricetext": "Pay $200",
+      "color": "#FFFFFF",
+      "price": 0,
+      "groupNumber": 0,
+      "baserent": 0,
+      "rent1": 0,
+      "rent2": 0,
+      "rent3": 0,
+      "rent4": 0,
+      "rent5": 0
+    },
+    {
+      "name": "Reading Railroad",
+      "pricetext": "$200",
+      "color": "#FFFFFF",
+      "price": 200,
+      "groupNumber": 1,
+      "baserent": 0,
+      "rent1": 0,
+      "rent2": 0,
+      "rent3": 0,
+      "rent4": 0,
+      "rent5": 0
+    },
+    {
+      "name": "Oriental Avenue",
+      "pricetext": "$100",
+      "color": "#87CEEB",
+      "price": 100,
+      "groupNumber": 4,
+      "baserent": 6,
+      "rent1": 30,
+      "rent2": 90,
+      "rent3": 270,
+      "rent4": 400,
+      "rent5": 550
+    },
+    {
+      "name": "Chance",
+      "pricetext": "FOLLOW INSTRUCTIONS ON TOP CARD",
+      "color": "#FFFFFF",
+      "price": 0,
+      "groupNumber": 0,
+      "baserent": 0,
+      "rent1": 0,
+      "rent2": 0,
+      "rent3": 0,
+      "rent4": 0,
+      "rent5": 0
+    },
+    {
+      "name": "Vermont Avenue",
+      "pricetext": "$100",
+      "color": "#87CEEB",
+      "price": 100,
+      "groupNumber": 4,
+      "baserent": 6,
+      "rent1": 30,
+      "rent2": 90,
+      "rent3": 270,
+      "rent4": 400,
+      "rent5": 550
+    },
+    {
+      "name": "Connecticut Avenue",
+      "pricetext": "$120",
+      "color": "#87CEEB",
+      "price": 120,
+      "groupNumber": 4,
+      "baserent": 8,
+      "rent1": 40,
+      "rent2": 100,
+      "rent3": 300,
+      "rent4": 450,
+      "rent5": 600
+    },
+    {
+      "name": "Just Visiting",
+      "pricetext": "",
+      "color": "#FFFFFF",
+      "price": 0,
+      "groupNumber": 0,
+      "baserent": 0,
+      "rent1": 0,
+      "rent2": 0,
+      "rent3": 0,
+      "rent4": 0,
+      "rent5": 0
+    },
+    {
+      "name": "St. Charles Place",
+      "pricetext": "$140",
+      "color": "#FF0080",
+      "price": 140,
+      "groupNumber": 5,
+      "baserent": 10,
+      "rent1": 50,
+      "rent2": 150,
+      "rent3": 450,
+      "rent4": 625,
+      "rent5": 750
+    },
+    {
+      "name": "Electric Company",
+      "pricetext": "$150",
+      "color": "#FFFFFF",
+      "price": 150,
+      "groupNumber": 2,
+      "baserent": 0,
+      "rent1": 0,
+      "rent2": 0,
+      "rent3": 0,
+      "rent4": 0,
+      "rent5": 0
+    },
+    {
+      "name": "States Avenue",
+      "pricetext": "$140",
+      "color": "#FF0080",
+      "price": 140,
+      "groupNumber": 5,
+      "baserent": 10,
+      "rent1": 50,
+      "rent2": 150,
+      "rent3": 450,
+      "rent4": 625,
+      "rent5": 750
+    },
+    {
+      "name": "Virginia Avenue",
+      "pricetext": "$160",
+      "color": "#FF0080",
+      "price": 160,
+      "groupNumber": 5,
+      "baserent": 12,
+      "rent1": 60,
+      "rent2": 180,
+      "rent3": 500,
+      "rent4": 700,
+      "rent5": 900
+    },
+    {
+      "name": "Pennsylvania Railroad",
+      "pricetext": "$200",
+      "color": "#FFFFFF",
+      "price": 200,
+      "groupNumber": 1,
+      "baserent": 0,
+      "rent1": 0,
+      "rent2": 0,
+      "rent3": 0,
+      "rent4": 0,
+      "rent5": 0
+    },
+    {
+      "name": "St. James Place",
+      "pricetext": "$180",
+      "color": "#FFA500",
+      "price": 180,
+      "groupNumber": 6,
+      "baserent": 14,
+      "rent1": 70,
+      "rent2": 200,
+      "rent3": 550,
+      "rent4": 750,
+      "rent5": 950
+    },
+    {
+      "name": "Community Chest",
+      "pricetext": "FOLLOW INSTRUCTIONS ON TOP CARD",
+      "color": "#FFFFFF",
+      "price": 0,
+      "groupNumber": 0,
+      "baserent": 0,
+      "rent1": 0,
+      "rent2": 0,
+      "rent3": 0,
+      "rent4": 0,
+      "rent5": 0
+    },
+    {
+      "name": "Tennessee Avenue",
+      "pricetext": "$180",
+      "color": "#FFA500",
+      "price": 180,
+      "groupNumber": 6,
+      "baserent": 14,
+      "rent1": 70,
+      "rent2": 200,
+      "rent3": 550,
+      "rent4": 750,
+      "rent5": 950
+    },
+    {
+      "name": "New York Avenue",
+      "pricetext": "$200",
+      "color": "#FFA500",
+      "price": 200,
+      "groupNumber": 6,
+      "baserent": 16,
+      "rent1": 80,
+      "rent2": 220,
+      "rent3": 600,
+      "rent4": 800,
+      "rent5": 1000
+    },
+    {
+      "name": "Free Parking",
+      "pricetext": "",
+      "color": "#FFFFFF",
+      "price": 0,
+      "groupNumber": 0,
+      "baserent": 0,
+      "rent1": 0,
+      "rent2": 0,
+      "rent3": 0,
+      "rent4": 0,
+      "rent5": 0
+    },
+    {
+      "name": "Kentucky Avenue",
+      "pricetext": "$220",
+      "color": "#FF0000",
+      "price": 220,
+      "groupNumber": 7,
+      "baserent": 18,
+      "rent1": 90,
+      "rent2": 250,
+      "rent3": 700,
+      "rent4": 875,
+      "rent5": 1050
+    },
+    {
+      "name": "Chance",
+      "pricetext": "FOLLOW INSTRUCTIONS ON TOP CARD",
+      "color": "#FFFFFF",
+      "price": 0,
+      "groupNumber": 0,
+      "baserent": 0,
+      "rent1": 0,
+      "rent2": 0,
+      "rent3": 0,
+      "rent4": 0,
+      "rent5": 0
+    },
+    {
+      "name": "Indiana Avenue",
+      "pricetext": "$220",
+      "color": "#FF0000",
+      "price": 220,
+      "groupNumber": 7,
+      "baserent": 18,
+      "rent1": 90,
+      "rent2": 250,
+      "rent3": 700,
+      "rent4": 875,
+      "rent5": 1050
+    },
+    {
+      "name": "Illinois Avenue",
+      "pricetext": "$240",
+      "color": "#FF0000",
+      "price": 240,
+      "groupNumber": 7,
+      "baserent": 20,
+      "rent1": 100,
+      "rent2": 300,
+      "rent3": 750,
+      "rent4": 925,
+      "rent5": 1100
+    },
+    {
+      "name": "B&O Railroad",
+      "pricetext": "$200",
+      "color": "#FFFFFF",
+      "price": 200,
+      "groupNumber": 1,
+      "baserent": 0,
+      "rent1": 0,
+      "rent2": 0,
+      "rent3": 0,
+      "rent4": 0,
+      "rent5": 0
+    },
+    {
+      "name": "Atlantic Avenue",
+      "pricetext": "$260",
+      "color": "#FFFF00",
+      "price": 260,
+      "groupNumber": 8,
+      "baserent": 22,
+      "rent1": 110,
+      "rent2": 330,
+      "rent3": 800,
+      "rent4": 975,
+      "rent5": 1150
+    },
+    {
+      "name": "Ventnor Avenue",
+      "pricetext": "$260",
+      "color": "#FFFF00",
+      "price": 260,
+      "groupNumber": 8,
+      "baserent": 22,
+      "rent1": 110,
+      "rent2": 330,
+      "rent3": 800,
+      "rent4": 975,
+      "rent5": 1150
+    },
+    {
+      "name": "Water Works",
+      "pricetext": "$150",
+      "color": "#FFFFFF",
+      "price": 150,
+      "groupNumber": 2,
+      "baserent": 0,
+      "rent1": 0,
+      "rent2": 0,
+      "rent3": 0,
+      "rent4": 0,
+      "rent5": 0
+    },
+    {
+      "name": "Marvin Gardens",
+      "pricetext": "$280",
+      "color": "#FFFF00",
+      "price": 280,
+      "groupNumber": 8,
+      "baserent": 24,
+      "rent1": 120,
+      "rent2": 360,
+      "rent3": 850,
+      "rent4": 1025,
+      "rent5": 1200
+    },
+    {
+      "name": "Go to Jail",
+      "pricetext": "Go directly to Jail. Do not pass GO. Do not collect $200.",
+      "color": "#FFFFFF",
+      "price": 0,
+      "groupNumber": 0,
+      "baserent": 0,
+      "rent1": 0,
+      "rent2": 0,
+      "rent3": 0,
+      "rent4": 0,
+      "rent5": 0
+    },
+    {
+      "name": "Pacific Avenue",
+      "pricetext": "$300",
+      "color": "#008000",
+      "price": 300,
+      "groupNumber": 9,
+      "baserent": 26,
+      "rent1": 130,
+      "rent2": 390,
+      "rent3": 900,
+      "rent4": 1100,
+      "rent5": 1275
+    },
+    {
+      "name": "North Carolina Avenue",
+      "pricetext": "$300",
+      "color": "#008000",
+      "price": 300,
+      "groupNumber": 9,
+      "baserent": 26,
+      "rent1": 130,
+      "rent2": 390,
+      "rent3": 900,
+      "rent4": 1100,
+      "rent5": 1275
+    },
+    {
+      "name": "Community Chest",
+      "pricetext": "FOLLOW INSTRUCTIONS ON TOP CARD",
+      "color": "#FFFFFF",
+      "price": 0,
+      "groupNumber": 0,
+      "baserent": 0,
+      "rent1": 0,
+      "rent2": 0,
+      "rent3": 0,
+      "rent4": 0,
+      "rent5": 0
+    },
+    {
+      "name": "Pennsylvania Avenue",
+      "pricetext": "$320",
+      "color": "#008000",
+      "price": 320,
+      "groupNumber": 9,
+      "baserent": 28,
+      "rent1": 150,
+      "rent2": 450,
+      "rent3": 1000,
+      "rent4": 1200,
+      "rent5": 1400
+    },
+    {
+      "name": "Short Line",
+      "pricetext": "$200",
+      "color": "#FFFFFF",
+      "price": 200,
+      "groupNumber": 1,
+      "baserent": 0,
+      "rent1": 0,
+      "rent2": 0,
+      "rent3": 0,
+      "rent4": 0,
+      "rent5": 0
+    },
+    {
+      "name": "Chance",
+      "pricetext": "FOLLOW INSTRUCTIONS ON TOP CARD",
+      "color": "#FFFFFF",
+      "price": 0,
+      "groupNumber": 0,
+      "baserent": 0,
+      "rent1": 0,
+      "rent2": 0,
+      "rent3": 0,
+      "rent4": 0,
+      "rent5": 0
+    },
+    {
+      "name": "Park Place",
+      "pricetext": "$350",
+      "color": "#0000FF",
+      "price": 350,
+      "groupNumber": 10,
+      "baserent": 35,
+      "rent1": 175,
+      "rent2": 500,
+      "rent3": 1100,
+      "rent4": 1300,
+      "rent5": 1500
+    },
+    {
+      "name": "LUXURY TAX",
+      "pricetext": "Pay $100",
+      "color": "#FFFFFF",
+      "price": 0,
+      "groupNumber": 0,
+      "baserent": 0,
+      "rent1": 0,
+      "rent2": 0,
+      "rent3": 0,
+      "rent4": 0,
+      "rent5": 0
+    },
+    {
+      "name": "Boardwalk",
+      "pricetext": "$400",
+      "color": "#0000FF",
+      "price": 400,
+      "groupNumber": 10,
+      "baserent": 50,
+      "rent1": 200,
+      "rent2": 600,
+      "rent3": 1400,
+      "rent4": 1700,
+      "rent5": 2000
+    }
+  ],
+  "chanceCards": [
+    {
+      "text": "GET OUT OF JAIL FREE. This card may be kept until needed or traded.",
+      "action": "get_out_of_jail_free",
+      "type": "Chance"
+    },
+    {
+      "text": "Make General Repairs on All Your Property. For each house pay $25. For each hotel $100.",
+      "action": "street_repairs",
+      "houseCost": 25,
+      "hotelCost": 100,
+      "type": "Chance"
+    },
+    {
+      "text": "Speeding fine $15.",
+      "action": "pay_amount",
+      "amount": -15,
+      "type": "Chance"
+    },
+    {
+      "text": "You have been elected chairman of the board. Pay each player $50.",
+      "action": "pay_each_player",
+      "amount": 50,
+      "type": "Chance"
+    },
+    {
+      "text": "Go back three spaces.",
+      "action": "go_back_spaces",
+      "spaces": 3,
+      "type": "Chance"
+    },
+    {
+      "text": "ADVANCE TO THE NEAREST UTILITY. IF UNOWNED, you may buy it from the Bank. IF OWNED, throw dice and pay owner a total ten times the amount thrown.",
+      "action": "advance_to_nearest_utility",
+      "type": "Chance"
+    },
+    {
+      "text": "Bank pays you dividend of $50.",
+      "action": "pay_amount",
+      "amount": 50,
+      "type": "Chance"
+    },
+    {
+      "text": "ADVANCE TO THE NEAREST RAILROAD. If UNOWNED, you may buy it from the Bank. If OWNED, pay owner twice the rental to which they are otherwise entitled.",
+      "action": "advance_to_nearest_railroad",
+      "type": "Chance"
+    },
+    {
+      "text": "Pay poor tax of $15.",
+      "action": "pay_amount",
+      "amount": -15,
+      "type": "Chance"
+    },
+    {
+      "text": "Take a trip to Reading Rail Road. If you pass \"GO\" collect $200.",
+      "action": "advance_to_square",
+      "square": 5,
+      "type": "Chance"
+    },
+    {
+      "text": "ADVANCE to Boardwalk.",
+      "action": "advance_to_square",
+      "square": 39,
+      "type": "Chance"
+    },
+    {
+      "text": "ADVANCE to Illinois Avenue. If you pass \"GO\" collect $200.",
+      "action": "advance_to_square",
+      "square": 24,
+      "type": "Chance"
+    },
+    {
+      "text": "Your building loan matures. Collect $150.",
+      "action": "pay_amount",
+      "amount": 150,
+      "type": "Chance"
+    },
+    {
+      "text": "ADVANCE TO THE NEAREST RAILROAD. If UNOWNED, you may buy it from the Bank. If OWNED, pay owner twice the rental to which they are otherwise entitled.",
+      "action": "advance_to_nearest_railroad",
+      "type": "Chance"
+    },
+    {
+      "text": "ADVANCE to St. Charles Place. If you pass \"GO\" collect $200.",
+      "action": "advance_to_square",
+      "square": 11,
+      "type": "Chance"
+    },
+    {
+      "text": "Go to Jail. Go Directly to Jail. Do not pass \"GO\". Do not collect $200.",
+      "action": "go_to_jail",
+      "type": "Chance"
+    }
+  ],
+  "communityChestCards": [
+    {
+      "text": "Get out of Jail, Free. This card may be kept until needed or sold.",
+      "action": "get_out_of_jail_free",
+      "type": "Community Chest"
+    },
+    {
+      "text": "You have won second prize in a beauty contest. Collect $10.",
+      "action": "pay_amount",
+      "amount": 10,
+      "type": "Community Chest"
+    },
+    {
+      "text": "From sale of stock, you get $50.",
+      "action": "pay_amount",
+      "amount": 50,
+      "type": "Community Chest"
+    },
+    {
+      "text": "Life insurance matures. Collect $100.",
+      "action": "pay_amount",
+      "amount": 100,
+      "type": "Community Chest"
+    },
+    {
+      "text": "Income tax refund. Collect $20.",
+      "action": "pay_amount",
+      "amount": 20,
+      "type": "Community Chest"
+    },
+    {
+      "text": "Holiday fund matures. Receive $100.",
+      "action": "pay_amount",
+      "amount": 100,
+      "type": "Community Chest"
+    },
+    {
+      "text": "You inherit $100.",
+      "action": "pay_amount",
+      "amount": 100,
+      "type": "Community Chest"
+    },
+    {
+      "text": "Receive $25 consultancy fee.",
+      "action": "pay_amount",
+      "amount": 25,
+      "type": "Community Chest"
+    },
+    {
+      "text": "Pay hospital fees of $100.",
+      "action": "pay_amount",
+      "amount": -100,
+      "type": "Community Chest"
+    },
+    {
+      "text": "Bank error in your favor. Collect $200.",
+      "action": "pay_amount",
+      "amount": 200,
+      "type": "Community Chest"
+    },
+    {
+      "text": "Pay school fees of $50.",
+      "action": "pay_amount",
+      "amount": -50,
+      "type": "Community Chest"
+    },
+    {
+      "text": "Doctor's fee. Pay $50.",
+      "action": "pay_amount",
+      "amount": -50,
+      "type": "Community Chest"
+    },
+    {
+      "text": "It is your birthday. Collect $10 from every player.",
+      "action": "collect_from_each_player",
+      "amount": 10,
+      "type": "Community Chest"
+    },
+    {
+      "text": "Advance to \"GO\" (Collect $200).",
+      "action": "advance_to_go",
+      "type": "Community Chest"
+    },
+    {
+      "text": "You are assessed for street repairs. $40 per house. $115 per hotel.",
+      "action": "street_repairs",
+      "houseCost": 40,
+      "hotelCost": 115,
+      "type": "Community Chest"
+    },
+    {
+      "text": "Go to Jail. Go directly to Jail. Do not pass \"GO\". Do not collect $200.",
+      "action": "go_to_jail",
+      "type": "Community Chest"
+    }
+  ],
+  "rules": {
+    "startingMoney": 1500,
+    "passGoAmount": 200,
+    "jailFine": 50,
+    "maxPlayers": 8,
+    "minPlayers": 2
+  }
+}

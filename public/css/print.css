@@ -1,0 +1,251 @@
+/* Print-specific styles for Monopoly game */
+
+@media print {
+    /* Hide interactive elements */
+    button,
+    input[type="button"],
+    input[type="text"],
+    input[type="number"],
+    select,
+    .no-print {
+        display: none !important;
+    }
+
+    /* Ensure board is visible and properly sized */
+    #board {
+        border: 2px solid black !important;
+        border-spacing: 3px !important;
+        margin: 25px auto !important;
+        page-break-inside: avoid;
+    }
+
+    /* Style board cells for printing */
+    .cell {
+        position: relative !important;
+        top: 0px !important;
+        left: 0px !important;
+        padding: 0px !important;
+        vertical-align: bottom !important;
+        background-repeat: no-repeat !important;
+        background-size: auto 40px !important;
+        border: 1px solid black !important;
+        min-height: 60px !important;
+    }
+
+    .board-corner {
+        width: 102px !important;
+        height: 102px !important;
+    }
+
+    .board-top,
+    .board-bottom {
+        width: 72px !important;
+        height: 102px !important;
+    }
+
+    .board-left,
+    .board-right {
+        width: 102px !important;
+        height: 72px !important;
+    }
+
+    .board-center {
+        width: 675px !important;
+        border: none !important;
+        vertical-align: bottom !important;
+        background-repeat: no-repeat !important;
+        background-size: auto 40px !important;
+        text-align: center !important;
+        padding: 20px !important;
+    }
+
+    .cell-name {
+        position: absolute !important;
+        bottom: 0px !important;
+        left: 0px !important;
+        text-align: center !important;
+        width: 100% !important;
+        font-size: 10px !important;
+        font-weight: bold !important;
+        padding: 2px !important;
+    }
+
+    /* Card printing styles */
+    .page-break {
+        page-break-before: always;
+    }
+
+    /* Ensure cards are properly spaced */
+    .card-grid {
+        display: grid !important;
+        grid-template-columns: repeat(3, 1fr) !important;
+        gap: 20px !important;
+        max-width: 800px !important;
+        margin: 0 auto !important;
+    }
+
+    .card {
+        border: 2px solid #000 !important;
+        padding: 15px !important;
+        min-height: 120px !important;
+        background: #fff !important;
+        break-inside: avoid !important;
+    }
+
+    .card-title {
+        font-size: 18px !important;
+        font-weight: bold !important;
+        margin-bottom: 10px !important;
+    }
+
+    .chance-card .card-title {
+        color: #d4af37 !important;
+    }
+
+    .community-chest-card .card-title {
+        color: #4169e1 !important;
+    }
+
+    .card-content {
+        font-size: 14px !important;
+        line-height: 1.4 !important;
+    }
+
+    .card-number {
+        font-size: 10px !important;
+        margin-top: 10px !important;
+        color: #666 !important;
+        border-top: 1px solid #ccc !important;
+        padding-top: 5px !important;
+    }
+
+    /* Property cards */
+    .property-card {
+        border: 2px solid #000 !important;
+        padding: 15px !important;
+        background: #fff !important;
+        break-inside: avoid !important;
+        margin-bottom: 10px !important;
+    }
+
+    .property-header {
+        color: white !important;
+        padding: 8px !important;
+        text-align: center !important;
+        font-weight: bold !important;
+        margin-bottom: 10px !important;
+    }
+
+    .property-content {
+        font-size: 12px !important;
+        line-height: 1.4 !important;
+    }
+
+    /* Rules section */
+    .rules-section {
+        max-width: 600px !important;
+        margin: 0 auto !important;
+        text-align: left !important;
+        line-height: 1.6 !important;
+    }
+
+    .rules-section h3 {
+        color: #333 !important;
+        border-bottom: 2px solid #333 !important;
+        padding-bottom: 5px !important;
+    }
+
+    .rules-section h4 {
+        margin-top: 15px !important;
+        margin-bottom: 5px !important;
+    }
+
+    .rules-section ul {
+        margin: 0 0 10px 20px !important;
+    }
+
+    .rules-section li {
+        margin-bottom: 3px !important;
+    }
+
+    /* General print optimizations */
+    body {
+        font-family: Arial, sans-serif !important;
+        font-size: 12px !important;
+        line-height: 1.4 !important;
+        color: #000 !important;
+        background: #fff !important;
+    }
+
+    h1, h2, h3, h4 {
+        color: #000 !important;
+        page-break-after: avoid !important;
+    }
+
+    /* Ensure sufficient margins */
+    @page {
+        margin: 0.5in;
+        size: letter;
+    }
+
+    /* Avoid breaking tables across pages */
+    table {
+        page-break-inside: avoid !important;
+    }
+
+    /* Make sure headers don't break across pages */
+    h1, h2, h3, h4, h5, h6 {
+        page-break-after: avoid !important;
+    }
+
+    /* Ensure images don't break across pages */
+    img {
+        max-width: 100% !important;
+        height: auto !important;
+    }
+}
+
+/* Additional print styles that work in both print and screen preview */
+.print-preview {
+    background: #f9f9f9;
+    padding: 20px;
+    border: 1px solid #ccc;
+    margin: 20px 0;
+}
+
+.print-preview h2 {
+    color: #333;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 10px;
+}
+
+.print-preview .print-button {
+    background: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 4px;
+    margin: 10px 0;
+}
+
+.print-preview .print-button:hover {
+    background: #0056b3;
+}
+
+.print-preview .navigation {
+    margin-top: 20px;
+    padding-top: 10px;
+    border-top: 1px solid #ccc;
+}
+
+.print-preview .navigation a {
+    color: #007bff;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+.print-preview .navigation a:hover {
+    text-decoration: underline;
+}

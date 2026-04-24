@@ -54,7 +54,7 @@ function Game() {
 
 	var finalizeAuction = function() {
 		var p = player[highestbidder];
-		var sq = square[auctionproperty];
+		var sq = getSquare(auctionproperty);
 
 		if (highestbid > 0) {
 			p.pay(highestbid, 0);
@@ -85,7 +85,7 @@ function Game() {
 
 		index = auctionQueue.shift();
 
-		var s = square[index];
+		var s = getSquare(index);
 
 		if (s.price === 0 || s.owner !== 0) {
 			return game.auction();
@@ -1709,13 +1709,14 @@ function chanceCommunityChest() {
 	// Community Chest
 	if (p.position === 2 || p.position === 17 || p.position === 33) {
 		var communityChestIndex = communityChestCards.deck[communityChestCards.index];
+		var communityChestCardsData = getCommunityChestCards();
 
 		// Remove the get out of jail free card from the deck.
 		if (communityChestIndex === 0) {
 			communityChestCards.deck.splice(communityChestCards.index, 1);
 		}
 
-		popup("<img src='images/community_chest_icon.png' style='height: 50px; width: 53px; float: left; margin: 8px 8px 8px 0px;' /><div style='font-weight: bold; font-size: 16px; '>Community Chest:</div><div style='text-align: justify;'>" + communityChestCards[communityChestIndex].text + "</div>", function() {
+		popup("<img src='images/community_chest_icon.png' style='height: 50px; width: 53px; float: left; margin: 8px 8px 8px 0px;' /><div style='font-weight: bold; font-size: 16px; '>Community Chest:</div><div style='text-align: justify;'>" + communityChestCardsData[communityChestIndex].text + "</div>", function() {
 			communityChestAction(communityChestIndex);
 		});
 
@@ -1728,13 +1729,14 @@ function chanceCommunityChest() {
 	// Chance
 	} else if (p.position === 7 || p.position === 22 || p.position === 36) {
 		var chanceIndex = chanceCards.deck[chanceCards.index];
+		var chanceCardsData = getChanceCards();
 
 		// Remove the get out of jail free card from the deck.
 		if (chanceIndex === 0) {
 			chanceCards.deck.splice(chanceCards.index, 1);
 		}
 
-		popup("<img src='images/chance_icon.png' style='height: 50px; width: 26px; float: left; margin: 8px 8px 8px 0px;' /><div style='font-weight: bold; font-size: 16px; '>Chance:</div><div style='text-align: justify;'>" + chanceCards[chanceIndex].text + "</div>", function() {
+		popup("<img src='images/chance_icon.png' style='height: 50px; width: 26px; float: left; margin: 8px 8px 8px 0px;' /><div style='font-weight: bold; font-size: 16px; '>Chance:</div><div style='text-align: justify;'>" + chanceCardsData[chanceIndex].text + "</div>", function() {
 			chanceAction(chanceIndex);
 		});
 
@@ -1754,12 +1756,63 @@ function chanceCommunityChest() {
 	}
 }
 
-function chanceAction(chanceIndex) {
-	var p = player[turn]; // This is needed for reference in action() method.
+// Helper function to execute card actions from dynamic data
+function executeCardAction(cardData, p) {
+	var action = cardData.action;
+	var amount = cardData.amount;
 
-	// $('#popupbackground').hide();
-	// $('#popupwrap').hide();
-	chanceCards[chanceIndex].action(p);
+	switch(action) {
+		case 'get_out_of_jail_free':
+			p.communityChestJailCard = true;
+			updateOwned();
+			break;
+		case 'pay_amount':
+			if (amount > 0) {
+				addamount(amount, cardData.type || 'Card');
+			} else {
+				subtractamount(-amount, cardData.type || 'Card');
+			}
+			break;
+		case 'pay_each_player':
+			payeachplayer(amount, cardData.type || 'Card');
+			break;
+		case 'collect_from_each_player':
+			collectfromeachplayer(amount, cardData.type || 'Card');
+			break;
+		case 'advance_to_square':
+			advance(cardData.square);
+			break;
+		case 'advance_to_go':
+			advance(0);
+			break;
+		case 'go_to_jail':
+			gotojail();
+			break;
+		case 'go_back_spaces':
+			p.position -= cardData.spaces;
+			land();
+			break;
+		case 'advance_to_nearest_utility':
+			advanceToNearestUtility();
+			break;
+		case 'advance_to_nearest_railroad':
+			advanceToNearestRailroad();
+			break;
+		case 'street_repairs':
+			streetrepairs(cardData.houseCost || 0, cardData.hotelCost || 0);
+			break;
+		default:
+			console.log('Unknown card action:', action);
+			break;
+	}
+}
+
+function chanceAction(chanceIndex) {
+	var p = player[turn];
+	var chanceCardsData = getChanceCards();
+
+	// Execute the card action using dynamic data
+	executeCardAction(chanceCardsData[chanceIndex], p);
 
 	updateMoney();
 
@@ -1770,11 +1823,11 @@ function chanceAction(chanceIndex) {
 }
 
 function communityChestAction(communityChestIndex) {
-	var p = player[turn]; // This is needed for reference in action() method.
+	var p = player[turn];
+	var communityChestCardsData = getCommunityChestCards();
 
-	// $('#popupbackground').hide();
-	// $('#popupwrap').hide();
-	communityChestCards[communityChestIndex].action(p);
+	// Execute the card action using dynamic data
+	executeCardAction(communityChestCardsData[communityChestIndex], p);
 
 	updateMoney();
 
@@ -2283,7 +2336,7 @@ function land(increasedRent) {
 	increasedRent = !!increasedRent; // Cast increasedRent to a boolean value. It is used for the ADVANCE TO THE NEAREST RAILROAD/UTILITY Chance cards.
 
 	var p = player[turn];
-	var s = square[p.position];
+	var s = getSquare(p.position);
 
 	var die1 = game.getDie(1);
 	var die2 = game.getDie(2);
@@ -2322,28 +2375,28 @@ function land(increasedRent) {
 				rent = 12.5;
 			}
 
-			if (s.owner == square[5].owner) {
+			if (s.owner == getSquare(5).owner) {
 				rent *= 2;
 			}
-			if (s.owner == square[15].owner) {
+			if (s.owner == getSquare(15).owner) {
 				rent *= 2;
 			}
-			if (s.owner == square[25].owner) {
+			if (s.owner == getSquare(25).owner) {
 				rent *= 2;
 			}
-			if (s.owner == square[35].owner) {
+			if (s.owner == getSquare(35).owner) {
 				rent *= 2;
 			}
 
 		} else if (p.position === 12) {
-			if (increasedRent || square[28].owner == s.owner) {
+			if (increasedRent || getSquare(28).owner == s.owner) {
 				rent = (die1 + die2) * 10;
 			} else {
 				rent = (die1 + die2) * 4;
 			}
 
 		} else if (p.position === 28) {
-			if (increasedRent || square[12].owner == s.owner) {
+			if (increasedRent || getSquare(12).owner == s.owner) {
 				rent = (die1 + die2) * 10;
 			} else {
 				rent = (die1 + die2) * 4;
@@ -2352,7 +2405,7 @@ function land(increasedRent) {
 		} else {
 
 			for (var i = 0; i < 40; i++) {
-				sq = square[i];
+				sq = getSquare(i);
 				if (sq.groupNumber == s.groupNumber && sq.owner != s.owner) {
 					groupowned = false;
 				}
@@ -2702,6 +2755,31 @@ function menuitem_onmouseout(element) {
 	return;
 }
 
+// Helper function to get square data from dynamic game data
+function getSquare(index) {
+	if (window.gameData && window.gameData.squares) {
+		return window.gameData.squares[index];
+	}
+	// Fallback for backward compatibility during transition
+	return window.square ? window.square[index] : null;
+}
+
+// Helper function to get community chest cards
+function getCommunityChestCards() {
+	if (window.gameData && window.gameData.communityChestCards) {
+		return window.gameData.communityChestCards;
+	}
+	return window.communityChestCards || [];
+}
+
+// Helper function to get chance cards
+function getChanceCards() {
+	if (window.gameData && window.gameData.chanceCards) {
+		return window.gameData.chanceCards;
+	}
+	return window.chanceCards || [];
+}
+
 window.onload = function() {
 	game = new Game();
 
@@ -2714,25 +2792,31 @@ window.onload = function() {
 	var groupNumber;
 
 	for (var i = 0; i < 40; i++) {
-		groupNumber = square[i].groupNumber;
+		var sq = getSquare(i);
+		if (sq) {
+			groupNumber = sq.groupNumber;
 
-		if (groupNumber > 0) {
-			if (!groupPropertyArray[groupNumber]) {
-				groupPropertyArray[groupNumber] = [];
+			if (groupNumber > 0) {
+				if (!groupPropertyArray[groupNumber]) {
+					groupPropertyArray[groupNumber] = [];
+				}
+
+				groupPropertyArray[groupNumber].push(i);
 			}
-
-			groupPropertyArray[groupNumber].push(i);
 		}
 	}
 
 	for (var i = 0; i < 40; i++) {
-		groupNumber = square[i].groupNumber;
+		var sq = getSquare(i);
+		if (sq) {
+			groupNumber = sq.groupNumber;
 
-		if (groupNumber > 0) {
-			square[i].group = groupPropertyArray[groupNumber];
+			if (groupNumber > 0) {
+				sq.group = groupPropertyArray[groupNumber];
+			}
+
+			sq.index = i;
 		}
-
-		square[i].index = i;
 	}
 
 	AITest.count = 0;
@@ -2740,14 +2824,21 @@ window.onload = function() {
 	player[1].human = true;
 	player[0].name = "the bank";
 
+	// Initialize card decks using dynamic data
+	var chanceCardsData = getChanceCards();
+	var communityChestCardsData = getCommunityChestCards();
+
 	communityChestCards.index = 0;
 	chanceCards.index = 0;
 
 	communityChestCards.deck = [];
 	chanceCards.deck = [];
 
-	for (var i = 0; i < 16; i++) {
+	for (var i = 0; i < chanceCardsData.length; i++) {
 		chanceCards.deck[i] = i;
+	}
+
+	for (var i = 0; i < communityChestCardsData.length; i++) {
 		communityChestCards.deck[i] = i;
 	}
 
@@ -2783,7 +2874,7 @@ window.onload = function() {
 	var currentCellOwner;
 
 	for (var i = 0; i < 40; i++) {
-		s = square[i];
+		s = getSquare(i);
 
 		currentCell = document.getElementById("cell" + i);
 
@@ -2801,7 +2892,7 @@ window.onload = function() {
 		currentCellName.className = "cell-name";
 		currentCellName.textContent = s.name;
 
-		if (square[i].groupNumber) {
+		if (s.groupNumber) {
 			currentCellOwner = currentCellAnchor.appendChild(document.createElement("div"));
 			currentCellOwner.id = "cell" + i + "owner";
 			currentCellOwner.className = "cell-owner";
